@@ -28,8 +28,10 @@ public class PinnedClientFactory implements OkHttpClientFactory {
             client.certificatePinner(certificatePinner);
         }
         
-
-        return OkHttpClientProvider.enableTls12OnPreLollipop(client).build();
+// FIXME: andorid below 4.4(lollipop) dont use tls1.2 by default so this method.
+//   But its removed now need to look in the future
+//         return OkHttpClientProvider.enableTls12OnPreLollipop(client).build();
+           return client.build();
     }
 }
 
